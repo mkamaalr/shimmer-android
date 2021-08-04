@@ -26,7 +26,7 @@ import android.view.animation.LinearInterpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public final class ShimmerDrawableCircled extends Drawable {
+public final class ShimmerDrawableRounded extends Drawable {
   private final ValueAnimator.AnimatorUpdateListener mUpdateListener =
       new ValueAnimator.AnimatorUpdateListener() {
         @Override
@@ -43,7 +43,7 @@ public final class ShimmerDrawableCircled extends Drawable {
 
   private @Nullable Shimmer mShimmer;
 
-  public ShimmerDrawableCircled() {
+  public ShimmerDrawableRounded() {
     mShimmerPaint.setAntiAlias(true);
   }
 
@@ -127,7 +127,7 @@ public final class ShimmerDrawableCircled extends Drawable {
     mShaderMatrix.setRotate(mShimmer.tilt, mDrawRect.width() / 2f, mDrawRect.height() / 2f);
     mShaderMatrix.postTranslate(dx, dy);
     mShimmerPaint.getShader().setLocalMatrix(mShaderMatrix);
-    canvas.drawCircle(mDrawRect.width() / 2f, mDrawRect.height() / 2f, mDrawRect.width() / 2f, mShimmerPaint);
+    canvas.drawRoundRect(mDrawRect, 50f, 50f, mShimmerPaint);
   }
 
   @Override
